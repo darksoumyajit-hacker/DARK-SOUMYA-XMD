@@ -1,0 +1,44 @@
+{
+  "name": "DARK-SOUMYA-XMD",
+  "description": "DARK-SOUMYA-XMD, your friendly assistant!",
+  "logo": "https://files.catbox.moe/xr5r1c.jpg",
+  "keywords": [],
+  "repository": "https://github.com/darksoumyajit-hacker/DARK-SOUMYA-XMD",
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+"env": {
+  "SESSION_ID": {
+    "description": "Must begin with 'DARK-XMD:~'.",
+    "value": "",
+    "required": true
+  }
+},  
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "standard-2x"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ]
+}
+
